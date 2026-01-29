@@ -1,4 +1,10 @@
-{ pkgs, config, lib, inputs, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -15,7 +21,12 @@
   users.users.winter = {
     isNormalUser = true;
     description = "Winter";
-    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "audio"
+    ];
     shell = pkgs.zsh;
   };
 
@@ -32,5 +43,5 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  system.stateVersion = "25.11"; 
+  system.stateVersion = "25.11";
 }

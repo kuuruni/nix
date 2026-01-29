@@ -1,5 +1,8 @@
 { ... }:
 
+let
+  wallpaperPath = ./assets/winter.jpeg;
+in
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -17,11 +20,40 @@
         layout = "dwindle";
       };
 
+      decoration = {
+        rounding = 10;
+        blur = {
+          enabled = true;
+          size = 3;
+          passes = 1;
+          vibrancy = 0.1696;
+        };
+      };
+
       input = {
         kb_layout = "us";
         follow_mouse = 1;
         touchpad.natural_scroll = true;
       };
+
+      "$mainMod" = "SUPER";
+      bind = [
+        "$mainMod, T, exec, kitty"
+        "$mainMod, Q, killactive,"
+        "$mainMod, R, exec, walker"
+      ];
+
+      cursor = {
+        no_hardware_cursors = true;
+      };
+
+      exec-once = [
+        "swww-daemon"
+        "swww img ${wallpaperPath} --transition-type grow"
+        "waybar"
+        "dunst"
+        "walker --gapplication-service"
+      ];
     };
   };
 }

@@ -6,7 +6,7 @@
     QT_QPA_PLATFORM = "wayland";
     SDL_VIDEODRIVER = "wayland";
     _JAVA_AWT_WM_NONREPARENTING = "1";
-    
+
     # Force Intel to use Wayland
     GBM_BACKEND = "drm-intel";
     __GLX_VENDOR_LIBRARY_NAME = "intel";

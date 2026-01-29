@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -15,7 +20,7 @@
     ];
   };
 
-  services.thermald.enable = true; 
-  
+  services.thermald.enable = true;
+
   hardware.cpu.intel.updateMicrocode = true;
 }

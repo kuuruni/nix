@@ -3,6 +3,14 @@
 {
   imports = [
     ./hyprland-config.nix
+    ./waybar.nix
+    ./walker.nix
+    ./kitty.nix
+    ./zsh.nix
+    ./yazi.nix
+    ./swww.nix
+    ./nvim.nix
+    ./vscode.nix
   ];
 
   home.username = "winter";
@@ -15,6 +23,10 @@
     brave
     chromium
     vlc
+    swww
+    # rofi-wayland # vicinae
+    libnotify
+    dunst
   ];
 
   programs.bash.enable = true;
