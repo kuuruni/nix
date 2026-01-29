@@ -10,6 +10,8 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
+  programs.zsh.enable = true;
+
   users.users.winter = {
     isNormalUser = true;
     description = "Winter";
