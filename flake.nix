@@ -35,7 +35,7 @@
       modules.default = import ./.;
 
       # Developer environments (TS, Go, etc.)
-      devShells.default = import ./shell.nix;
+      # devShells.default = import ./shell.nix;
 
       # Extensions
       checks = mapModules ./test import;

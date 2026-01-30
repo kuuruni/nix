@@ -13,6 +13,7 @@
     ../../modules/hardware/intel.nix
     ../../modules/hardware/display.nix
     ../../modules/desktop/hyprland.nix
+    ../../modules/desktop/sddm/sddm.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -28,7 +29,21 @@
       "audio"
     ];
     shell = pkgs.zsh;
+    initialPassword = "7502";
   };
+
+  # uncomment this part if want to test via vm
+  # virtualisation.vmVariant = {
+  #   virtualisation = {
+  #     memorySize = 4096; 
+  #     cores = 4; 
+  #     qemu.options = [
+  #       "-vga virtio"
+  #       "-display gtk,zoom-to-fit=on"
+  #       "-device virtio-tablet-pci"
+  #     ];
+  #   };
+  # };
 
   home-manager = {
     useGlobalPkgs = true;

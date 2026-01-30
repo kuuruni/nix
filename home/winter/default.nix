@@ -3,7 +3,7 @@
 {
   imports = [
     ./hyprland-config.nix
-    ./waybar.nix
+    ./waybar/waybar.nix
     ./rofi.nix
     ./wlogout.nix
     ./kitty.nix

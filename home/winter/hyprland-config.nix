@@ -44,13 +44,28 @@ in
         touchpad.natural_scroll = true;
       };
 
-      "$mainMod" = "SUPER";
-      "$moveactivewindow" = "grep -q 'true' <<< $(hyprctl activewindow -j | jq -r .floating) && hyprctl dispatch moveactive";
+      "$mainMod" = "ALT";
+      "$moveactivewindow" =
+        "grep -q 'true' <<< $(hyprctl activewindow -j | jq -r .floating) && hyprctl dispatch moveactive";
+
+      bindm = [
+        "$mainMod, mouse:272, movewindow"
+        "$mainMod, mouse:273, resizewindow"
+        "$mainMod, Z, movewindow"
+        "$mainMod, X, resizewindow"
+      ];
+
+      binde = [
+        "$mainMod Shift, Right , resizeactive, 30 0"
+        "$mainMod Shift, Left, resizeactive, -30 0"
+        "$mainMod Shift, Up, resizeactive, 0 -30"
+        "$mainMod Shift, Down, resizeactive, 0 30"
+      ];
 
       bind = [
         # Terminal and apps
         "$mainMod, T, exec, kitty"
-        "$mainMod, Q, killactive,"
+        "$mainMod, Q, killactive"
         "$mainMod, E, exec, kitty -e yazi"
 
         # Rofi
@@ -63,7 +78,7 @@ in
         "$mainMod, Right, movefocus, r"
         "$mainMod, Up, movefocus, u"
         "$mainMod, Down, movefocus, d"
-        "ALT, Tab, cyclenext,"
+        "ALT, Tab, cyclenext"
 
         # Move windows
         "$mainMod SHIFT CONTROL, Left, exec, $moveactivewindow -30 0 || hyprctl dispatch movewindow l"
@@ -71,14 +86,11 @@ in
         "$mainMod SHIFT CONTROL, Up, exec, $moveactivewindow 0 -30 || hyprctl dispatch movewindow u"
         "$mainMod SHIFT CONTROL, Down, exec, $moveactivewindow 0 30 || hyprctl dispatch movewindow d"
 
-        # Mouse
-        "$mainMod, mouse:272, movewindow"
-        "$mainMod, mouse:273, resizewindow"
-        "$mainMod, Z, movewindow"
-        "$mainMod, X, resizewindow"
-
-        # Layout
-        "$mainMod, J, togglesplit,"
+        # Layout & Window states
+        "$mainMod, J, togglesplit"
+        "$mainMod, W, togglefloating"
+        "$mainMod, G, togglegroup"
+        "SHIFT, F11, fullscreen"
 
         # Audio (wpctl)
         ", F10, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
@@ -99,11 +111,6 @@ in
         "$mainMod CONTROL, P, exec, grimblast --freeze copy area"
         "$mainMod ALT, P, exec, grimblast copy output"
         ", Print, exec, grimblast copy screen"
-
-        # Window states
-        "$mainMod, W, togglefloating,"
-        "$mainMod, G, togglegroup,"
-        "SHIFT, F11, fullscreen,"
 
         # Groups
         "$mainMod CONTROL, H, changegroupactive, b"
@@ -136,10 +143,10 @@ in
         # Relative workspace
         "$mainMod CONTROL ALT, Right, movetoworkspace, r+1"
         "$mainMod CONTROL ALT, Left, movetoworkspace, r-1"
-        "$mainMod, mouse_down, workspace, e+1"
-        "$mainMod, mouse_up, workspace, e-1"
         "$mainMod CONTROL, Right, workspace, r+1"
         "$mainMod CONTROL, Left, workspace, r-1"
+        "$mainMod, mouse_down, workspace, e+1"
+        "$mainMod, mouse_up, workspace, e-1"
 
         # Scratchpad
         "$mainMod SHIFT, S, movetoworkspace, special"

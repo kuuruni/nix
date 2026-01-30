@@ -10,6 +10,7 @@
     # Force Intel to use Wayland
     GBM_BACKEND = "drm-intel";
     __GLX_VENDOR_LIBRARY_NAME = "intel";
+    WLR_NO_HARDWARE_CURSORS = "1";
   };
 
   systemd.user.targets.hyprland-session = {

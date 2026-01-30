@@ -13,7 +13,6 @@
       nixpkgs-fmt
       stylua
       pyright
-
       ripgrep
       fd
       fzf
@@ -25,5 +24,10 @@
     ];
   };
 
-  xdg.configFile."nvim".source = ./nvim-config;
+  xdg.configFile."nvim" = {
+    source = ./nvim-config;
+    recursive = true;
+  };
+
+  xdg.configFile."nvim/lazy-lock.json".enable = false;
 }

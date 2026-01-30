@@ -1,0 +1,170 @@
+/* Catppuccin Mocha Palette */
+/* Base: #1e1e2e, Mantle: #181825, Crust: #11111b */
+/* Surface0: #313244, Surface1: #45475a, Surface2: #585b70 */
+/* Text: #cdd6f4, Subtext: #a6adc8 */
+/* Lavender: #b4befe, Blue: #89b4fa, Sapphire: #74c7ec */
+/* Teal: #94e2d5, Green: #a6e3a1, Yellow: #f9e2af */
+/* Peach: #fab387, Maroon: #eba0ac, Red: #f38ba8 */
+/* Mauve: #cba6f7, Pink: #f5c2e7, Flamingo: #f2cdcd */
+/* Rosewater: #f5e0dc */
+
+* {
+  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+  font-size: 13px;
+  font-weight: 600;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+/* Main bar background - floating pill style */
+.modules-left,
+.modules-center,
+.modules-right {
+  background: #1e1e2e;
+  border: 2px solid #313244;
+  border-radius: 16px;
+  padding: 0 4px;
+  margin: 4px 0;
+}
+
+/* Workspaces styling */
+#workspaces {
+  background: transparent;
+  padding: 0 4px;
+}
+
+#workspaces button {
+  color: #585b70;
+  background: transparent;
+  padding: 4px 10px;
+  margin: 4px 2px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+  color: #cdd6f4;
+  background: #313244;
+}
+
+#workspaces button.active {
+  color: #1e1e2e;
+  background: linear-gradient(45deg, #cba6f7, #89b4fa);
+  font-weight: bold;
+}
+
+#workspaces button.urgent {
+  color: #1e1e2e;
+  background: #f38ba8;
+}
+
+/* Clock - center module */
+#clock {
+  color: #cdd6f4;
+  background: transparent;
+  padding: 4px 16px;
+  font-weight: bold;
+}
+
+/* Right side modules - individual pills */
+#tray,
+#pulseaudio,
+#network,
+#battery {
+  background: #313244;
+  color: #cdd6f4;
+  padding: 4px 14px;
+  margin: 4px 3px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+/* Tray */
+#tray {
+  background: #313244;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background: #f9e2af;
+}
+
+/* Pulseaudio */
+#pulseaudio {
+  color: #89b4fa;
+}
+
+#pulseaudio:hover {
+  background: #89b4fa;
+  color: #1e1e2e;
+}
+
+#pulseaudio.muted {
+  color: #6c7086;
+  background: #313244;
+}
+
+/* Network */
+#network {
+  color: #94e2d5;
+}
+
+#network:hover {
+  background: #94e2d5;
+  color: #1e1e2e;
+}
+
+#network.disconnected {
+  color: #6c7086;
+}
+
+/* Battery */
+#battery {
+  color: #a6e3a1;
+}
+
+#battery:hover {
+  background: #a6e3a1;
+  color: #1e1e2e;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #f9e2af;
+}
+
+#battery.warning:not(.charging) {
+  color: #fab387;
+}
+
+#battery.critical:not(.charging) {
+  color: #1e1e2e;
+  background: #f38ba8;
+  animation: blink 0.5s linear infinite alternate;
+}
+
+@keyframes blink {
+  to {
+    background: #45475a;
+    color: #f38ba8;
+  }
+}
+
+/* Tooltip styling */
+tooltip {
+  background: #1e1e2e;
+  border: 2px solid #cba6f7;
+  border-radius: 12px;
+}
+
+tooltip label {
+  color: #cdd6f4;
+  padding: 4px 8px;
+}
