@@ -4,7 +4,8 @@
   imports = [
     ./hyprland-config.nix
     ./waybar.nix
-    ./walker.nix
+    ./rofi.nix
+    ./wlogout.nix
     ./kitty.nix
     ./zsh.nix
     ./yazi.nix
